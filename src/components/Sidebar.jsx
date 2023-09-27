@@ -35,7 +35,7 @@ const Sidebar = ({ active, setActive }) => {
         onClick={toggleSidebar}
       ></div>
       <div
-        className={`fixed top-0 left-0 h-[100%] w-[2  0%] z-50 bg-white transform transition-transform ${
+        className={`fixed top-0 left-0 h-[100%] lg:w-[25%] md:w-[45%] sm:w-[100%] xs:w-[100%] z-50 bg-white transform transition-transform ${
           active ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -148,23 +148,28 @@ const Sidebar = ({ active, setActive }) => {
           </p>
         </div>
 
-        <div className="absolute mt-[184px] left-0">
+        <div className="absolute lg:mt-[23vh] md:mt-[38vh] sm:mt-[25vh] left-0">
           <img src={treangle} alt="Treangle" />
         </div>
-        <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center ">
-          <img src={trapezia} alt="Trapezia" />
+        <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center lg:h-[30%] sm:h-[20%] xs:h-[10%]">
+          <img src={trapezia} alt="Trapezia" className="w-full " />
           <img
             src={groovyMeditation}
             alt="Groovy Meditation"
-            className="absolute w-[130px] h-[145px] ml-[180px] mt-[0px]"
+            className="absolute lg:w-[130px] lg:h-[145px] lg:ml-[180px] sm:w-[100px] sm:h-[120px] sm:ml-[170px] "
           />
-          <p className="absolute text-white text-xl not-italic font-bold leading-[normal] font-inter bottom-[90px] left-10 ml-[-30px] mt-[30px]">
+          <p className="absolute text-white lg:text-[18px] not-italic font-bold leading-[normal] font-inter lg:bottom-[90px] 
+          lg:left-[7px]  lg:mt-[30px] sm:text-[14px] sm:bottom-[40px] sm:left-[10px] sm:mt-[30px]">
             Good Planet Academy
           </p>
-          <p className="absolute text-[#FEFEFE] text-sm not-italic font-normal leading-[normal] font-inter bottom-[67px] left-10 ml-[-30px] mt-[30px]">
+          <p className="absolute text-[#FEFEFE] lg:text-sm not-italic font-normal leading-[normal] 
+          font-inter lg:bottom-[67px] lg:left-[10px]  lg:mt-[30px] sm:text-[10px] sm:bottom-[25px] sm:left-[10px]">
             Простір свідомих батьків
           </p>
-          <p className="absolute text-[#EEE] text-[11px] not-italic font-normal leading-[normal] font-inter bottom-[10px] left-10 ml-[-30px] mt-[30px]"> Створено з любов’ю, людьми, які цінують Всесвіт.</p>
+          <p className="absolute text-[#EEE] text-[11px] not-italic font-normal leading-[normal] font-inter bottom-[10px] left-10 ml-[-30px] mt-[30px]">
+            {" "}
+            Створено з любов’ю, людьми, які цінують Всесвіт.
+          </p>
         </div>
       </div>
     </>
