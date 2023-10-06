@@ -85,7 +85,7 @@ function Subscriptions() {
              font-inter not-italic font-semibold leading-[normal] lg:mt-[45px] md:mt-[40px] sm:mt-[20px]"
               >
               
-                {numberOfMessages * price}
+                {90 * price}
               </p>
               <p
                 className="text-[#515558] text-center lg:text-base md:text-[14px] sm:text-[11px]
