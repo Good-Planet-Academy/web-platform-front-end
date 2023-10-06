@@ -1,31 +1,45 @@
-import React, { useState, useRef } from "react";
+import { useSelector } from "react-redux";
 import {
   XMarkIcon,
   PencilIcon,
   PlusCircleIcon,
 } from "@heroicons/react/24/outline";
+import {Link} from "react-router-dom";
 import treangle from "../images/treangle.svg";
 import trapezia from "../images/trapezia.svg";
 import groovyMeditation from "../images/groovy-meditation.png";
 const Sidebar = ({ active, setActive }) => {
-  const [name, setName] = useState("Каріна");
-  const [age, setAge] = useState("6 років");
+  const reduxName = useSelector((state) => state.name);
+  const reduxAge = useSelector((state) => state.age);
 
-  const nameInputRef = useRef();
-  const ageInputRef = useRef();
+  const localStorageName = localStorage.getItem("name");
+  const localStorageAge = localStorage.getItem("age");
 
-  const handleChangeName = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleChangeAge = (event) => {
-    setAge(event.target.value);
-  };
+  const name = reduxName !== null && reduxName !== localStorageName ? localStorageName : reduxName;
+  const age = reduxAge !== null && reduxAge !== localStorageAge ? localStorageAge : reduxAge;
 
   const toggleSidebar = () => {
     setActive(!active);
   };
+  function getYearSuffix(age) {
+    const lastDigit = age % 10;
+    const lastTwoDigits = age % 100;
 
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+        return "років";
+    }
+
+    switch (lastDigit) {
+        case 1:
+            return "рік";
+        case 2:
+        case 3:
+        case 4:
+            return "роки";
+        default:
+            return "років";
+    }
+}
   return (
     <>
       <div
@@ -35,7 +49,7 @@ const Sidebar = ({ active, setActive }) => {
         onClick={toggleSidebar}
       ></div>
       <div
-        className={`fixed top-0 left-0 h-[100%] lg:w-[25%] md:w-[45%] sm:w-[100%] xs:w-[100%] z-50 bg-white transform transition-transform ${
+        className={`fixed top-0 left-0 h-[100%] lg:w-[30%] md:w-[45%] sm:w-[100%] xs:w-[100%] z-50 bg-white transform transition-transform ${
           active ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -50,26 +64,23 @@ const Sidebar = ({ active, setActive }) => {
         </button>
         <div className="name-field flex mt-[133px] border-l-[5px] border-[#CDDFDB] ml-[20px] pl-[15px] items-start space-x-4">
           <div className="flex flex-col space-y-2 w-[80%]">
-            <input
-              ref={nameInputRef}
+            <p
               type="text"
-              value={name}
-              onChange={handleChangeName}
               className="name-input font-inter text-[24px] font-semibold leading-[30px] outline-none"
-              readOnly={true}
-            />
-            <input
-              ref={ageInputRef}
+            > {name ? name : 'Ім\'я'}</p>
+            <p
               type="text"
-              value={age}
-              onChange={handleChangeAge}
               className="age-input font-inter text-[14px] font-medium leading-[20px] outline-none"
-              readOnly={true}
-            />
+            >   {age ? (
+              <p>{age} {getYearSuffix(age)}</p>
+            ) : (
+              <p className="age-input font-inter text-[14px] font-medium leading-[20px] outline-none">Вік</p>
+            )}</p>
           </div>
-          <button className="pencil-icon mt-4 ml-6">
+        <Link to='/info'>
+        <button className="pencil-icon mt-4 ml-6">
             <PencilIcon className="w-6 h-6" aria-hidden="true" />
-          </button>
+          </button></Link>
         </div>
         <div className="flex items-center mr-[20px] h-[50px] shrink-0 rounded-[5px] bg-[#13c296] mt-[47px] ml-[20px] cursor-pointer">
           <PlusCircleIcon
@@ -103,10 +114,13 @@ const Sidebar = ({ active, setActive }) => {
               fill="#4C6179"
             />
           </svg>
-          <p className="ml-2 text-[#212B36] text-[18px] not-italic font-medium leading-6 font-inter">
+         <Link to='/'>
+         <p className="ml-2 text-[#212B36] text-[18px] not-italic font-medium leading-6 font-inter">
             Про проект та цінності
           </p>
+         </Link>
         </div>
+        <Link to='/subscriptions'>
         <div className="flex items-center mr-[20px]  shrink-0 mt-[20px] cursor-pointer">
           <svg
             className="w-6 h-6 flex-shrink-0 text-[#4C6179] ml-[31px]"
@@ -129,6 +143,7 @@ const Sidebar = ({ active, setActive }) => {
             Підписки та квоти
           </p>
         </div>
+          </Link>
         <div className="flex items-center mr-[20px]  shrink-0 mt-[20px] cursor-pointer">
           <svg
             className="w-6 h-6 flex-shrink-0 text-[#4C6179] ml-[31px]"
@@ -148,7 +163,7 @@ const Sidebar = ({ active, setActive }) => {
           </p>
         </div>
 
-        <div className="absolute lg:mt-[23vh] md:mt-[38vh] sm:mt-[25vh] left-0">
+        <div className="absolute lg:mt-[24vh] md:mt-[41vh] sm:mt-[27vh] left-0">
           <img src={treangle} alt="Treangle" />
         </div>
         <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center lg:h-[30%] sm:h-[20%] xs:h-[10%]">
@@ -156,17 +171,21 @@ const Sidebar = ({ active, setActive }) => {
           <img
             src={groovyMeditation}
             alt="Groovy Meditation"
-            className="absolute lg:w-[130px] lg:h-[145px] lg:ml-[180px] sm:w-[100px] sm:h-[120px] sm:ml-[170px] "
+            className="absolute lg:w-[130px] lg:h-[145px] lg:ml-[180px] sm:w-[100px] sm:h-[120px] sm:ml-[220px] "
           />
-          <p className="absolute text-white lg:text-[18px] not-italic font-bold leading-[normal] font-inter lg:bottom-[90px] 
-          lg:left-[7px]  lg:mt-[30px] sm:text-[14px] sm:bottom-[40px] sm:left-[10px] sm:mt-[30px]">
+          <p
+            className="absolute text-white lg:text-[18px] not-italic font-bold leading-[normal] font-inter lg:bottom-[90px] 
+          lg:left-[7px]  lg:mt-[30px] sm:text-[14px] sm:bottom-[40px] sm:left-[22px] sm:mt-[30px]"
+          >
             Good Planet Academy
           </p>
-          <p className="absolute text-[#FEFEFE] lg:text-sm not-italic font-normal leading-[normal] 
-          font-inter lg:bottom-[67px] lg:left-[10px]  lg:mt-[30px] sm:text-[10px] sm:bottom-[25px] sm:left-[10px]">
+          <p
+            className="absolute text-[#FEFEFE] lg:text-sm not-italic font-normal leading-[normal] 
+          font-inter lg:bottom-[67px] lg:left-[10px]  lg:mt-[30px] sm:text-[14px] sm:bottom-[25px] sm:left-[22px]"
+          >
             Простір свідомих батьків
           </p>
-          <p className="absolute text-[#EEE] text-[11px] not-italic font-normal leading-[normal] font-inter bottom-[10px] left-10 ml-[-30px] mt-[30px]">
+          <p className="absolute text-[#EEE] text-[11px] not-italic font-normal leading-[normal] font-inter bottom-[10px] lg:left-[10px]  sm:left-[22px] mt-[30px]">
             {" "}
             Створено з любов’ю, людьми, які цінують Всесвіт.
           </p>

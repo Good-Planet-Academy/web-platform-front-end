@@ -10,7 +10,6 @@ import {
   LightBulbIcon,
   ShareIcon,
 } from "@heroicons/react/24/outline";
-import dots from "../images/dots.svg";
 import { useState } from "react";
 import Sidebar from "./Sidebar";
 import { useEffect } from "react";
@@ -61,7 +60,7 @@ function Onboarding() {
             <span className="text-[#ECA842]"> всіх знань світу!</span>
           </p>
 
-          <div className="lg:pl-[297px] mt-[-13px] absolute opacity-40 sm:pl-[100px] md:pl-[290px]">
+          <div className="lg:pl-[297px] mt-[-10px] absolute opacity-40 sm:pl-[170px] md:pl-[290px]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="192"
@@ -89,10 +88,10 @@ function Onboarding() {
               </defs>
             </svg>
           </div>
-          <div className=" first-elements flex flex-row items-end lg:mx-[135px] md:mx-[50px] mt-8 ">
+          <div className=" first-elements lg:flex md:flex flex-row items-end lg:mx-[135px] md:mx-[50px] mt-8  sm:hidden">
             <div className="w-full lg:w-1/2 md:w-full ">
               <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-8 ">
-                <div className="first lg:w-full md:w-full">
+                <div className="first lg:w-full md:w-full ">
                   <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#FBD06F] rounded-[18px] flex items-center justify-center md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
                     <ChatBubbleLeftEllipsisIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6 sm:w-6 sm:h-6" />
                   </div>
@@ -105,7 +104,7 @@ function Onboarding() {
                     часу. Саме так сьогодні виглядає сучасна грамота.
                   </p>
                 </div>
-                <div className="second  lg:w-full md:w-full">
+                <div className="second  lg:w-full md:w-full ">
                   <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#4BA0FF] rounded-[18px] flex items-center justify-center md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
                     <LanguageIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
                   </div>
@@ -124,7 +123,12 @@ function Onboarding() {
               <div className="first w-auto flex-grow">
                 <img
                   src={require("../images/girl.png")}
-                  className="w-full h-full object-cover md:w-auto md:h-auto"
+                  className="w-full h-full object-cover md:w-auto md:h-auto md:hidden lg:block"
+                  alt="Girl"
+                />
+                <img
+                  src={require("../images/girl_md.png")}
+                  className="w-full h-full object-cover md:w-auto md:h-auto md:block lg:hidden"
                   alt="Girl"
                 />
               </div>
@@ -132,27 +136,211 @@ function Onboarding() {
                 <div className="second z-10 flex-grow">
                   <img
                     src={require("../images/family.png")}
-                    className="w-full h-full object-cover md:w-auto md:h-auto"
+                    className="w-full h-full object-cover md:w-auto md:h-auto md:hidden lg:block"
+                    alt="Family"
+                  />
+                  <img
+                    src={require("../images/family_md.png")}
+                    className="w-full h-full object-cover md:w-auto md:h-auto md:block lg:hidden"
                     alt="Family"
                   />
                 </div>
                 <div className="third flex-grow mt-[30px] z-10">
                   <img
                     src={require("../images/woman.png")}
-                    className="w-full h-full object-cover md:w-auto md:h-auto"
+                    className="w-full h-full object-cover md:w-auto md:h-auto md:hidden lg:block"
+                    alt="Woman"
+                  />
+                  <img
+                    src={require("../images/woman_md.png")}
+                    className="w-full h-full object-cover md:w-auto md:h-auto md:block lg:hidden"
                     alt="Woman"
                   />
                 </div>
               </div>
             </div>
           </div>
-          <div className="grid 2 lg:grid-cols-4 md:grid-cols-4  gap-8 lg:mx-[135px] mt-[56px] md:mx-[50px] ">
-            <div className="col-span-1">
-              <div className="w-[100%] lg:h-auto md:h-1/3 sm:h-1/6 md:w-[100%] lg:w-[100%] md:mb-[56px] ">
-                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#A097FF] rounded-[18px] flex items-center justify-center md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
-                  <ClipboardDocumentCheckIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6 sm:w-6 sm:h-6" />
+          <div
+            className="lg:grid md:grid sm:hidden lg:grid-cols-4 md:grid-cols-4 gap-8 lg:mx-[135px] md:mx-[50px] lg:mt-[30px] md:mt-[20px]"
+            style={{ alignItems: "start" }}
+          >
+            <div className="w-[100%] lg:h-1/3 md:h-1/3 sm:h-1/6 md:w-[100%] lg:w-[100%]">
+              <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#A097FF] rounded-[18px] flex items-center justify-center md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                <ClipboardDocumentCheckIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6 sm:w-6 sm:h-6" />
+              </div>
+              <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter sm:text-[14px] md:text-[16px] md:pt-[17px] sm:pt-[10px]">
+                Домашнє завдання?
+              </p>
+              <p className="line-clamp-4 text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                Груві допоможе із будь-яким домашнім завданням, пояснюючи та
+                задаючи потрібні дитині питання-підказки.
+              </p>
+            </div>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3 sm:h-1/6">
+              <div className="fifth">
+                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#48DB7A] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <CheckCircleIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
                 </div>
-                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter sm:text-[14px] md:text-[16px] md:pt-[17px] sm:pt-[10px]">
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Лише безпечний контент
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Груві говорить з дитиною лише про те, що відповідає її віку.
+                  По всьому іншому — обережно радить іти по думці батьків 😉
+                </p>
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-auto md:h-1/3 sm:h-1/6 md:w-[100%] lg:w-[100%] mb-[56px]">
+              <div className="sixth">
+                <div className="lg:w-16 lg:h-16  flex-shrink-0 bg-[#FBD06F] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <SpeakerWaveIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6 sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Спілкуйтесь голосом
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Діти обожнюють говорити. Тепер у них справді є можливість
+                  поговорити про все на всі світі і знати більше всіх.
+                </p>
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-auto md:h-1/3 sm:h-1/6 md:w-[100%] lg:w-[100%] mb-[56px]">
+              <div className="sixth">
+                <div className="lg:w-16 mt-[-2px] lg:h-16 flex-shrink-0 bg-[#48DB7A] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <LightBulbIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Запалюйте креативність
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Всі дітки — мрійники і творці. Ми це розуміємо, і тому
+                  створили для них можливість творити, в команді зі штучним
+                  інтелектом.
+                </p>
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3 md:w-[100%] lg:w-[100%]  z-20 relative">
+              <div className="third">
+                <img
+                  alt="Groovy Meditation"
+                  src={require("../images/groovy-meditation.png")}
+                  style={{ maxWidth: "100%" }}
+                />
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3 sm:h-1/6 ">
+              <div className="sixth ">
+                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#4BA0FF] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <SparklesIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Терпеливий вчитель
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Груві вміє терпеливо, послідовно та просто пояснювати про
+                  майже все на світі — в тому числі і предмети шкільної
+                  програми, не втомлюючись шукати все нові і нові слова та
+                  підходи.
+                </p>
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3 sm:h-1/6">
+              <div className="sixth">
+                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#A097FF] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <ArrowTrendingUpIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Ціль — навчити
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Груві розуміє, що діти шукають швидких відповідей, особливо на
+                  домашнє завдання, і майже ніколи не дає їх, замінюючи
+                  питаннями, які наштовхують дитину на роздуми і самостійність.
+                </p>
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3 sm:h-1/6">
+              <div className="sixth">
+                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#4BA0FF] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <ShareIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Послідовне мишлення
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter  md:text-[13px] sm:text-[12px]">
+                  Осмислене спілкування у форматі “питання-відповідь” дуже
+                  важливе для розвитку послідовного мишлення. Груві — майстер
+                  логічних висновків і готовий цьому навчати.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="images mt-[35px] sm:w-full sm:flex sm:flex-row sm:flex-nowrap sm:px-8 sm:relative lg:hidden md:hidden sm:items-end">
+            <div className="first w-auto flex-grow">
+              <img
+                src={require("../images/girl.png")}
+                className="object-cover w-auto h-auto"
+                alt="Girl"
+              />
+            </div>
+            <div className="flex flex-col ml-[20px] flex-grow">
+              <div className="second z-10 flex-grow">
+                <img
+                  src={require("../images/family.png")}
+                  className="object-cover w-auto h-auto"
+                  alt="Family"
+                />
+              </div>
+              <div className="third flex-grow mt-[20px] z-10">
+                <img
+                  src={require("../images/woman.png")}
+                  className="object-cover w-auto h-auto"
+                  alt="Woman"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="sm:grid grid-cols-2 md:hidden lg:hidden gap-4 mx-[30px]"
+            style={{ alignItems: "start" }}
+          >
+            <div className="w-[100%] lg:h-1/3 md:h-1/3 mt-[62px]">
+              <div className="first">
+                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#FBD06F] rounded-[18px] flex items-center justify-center md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <ChatBubbleLeftEllipsisIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6 sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px] sm:pt-[10px]">
+                  У сучасній формі
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Чат та голосовий помічник. Це саме ті форми взаємодії, які
+                  наповнюють нашу реальність і максимально відповідають духу
+                  часу. Саме так сьогодні виглядає сучасна грамота.
+                </p>
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3  mt-[62px]">
+              <div className="first">
+                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#4BA0FF] rounded-[18px] flex items-center justify-center md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <LanguageIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Всіма мовами світу
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Діти швидко вчать нові мови, чому б не дати їм цю можливість?
+                  Груві вміє креативити на різних мовах і легко може допомогти з
+                  опануванням нових.
+                </p>
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3  ">
+              <div className="second">
+                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#A097FF] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <ClipboardDocumentCheckIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter sm:text-[14px] md:text-[16px] md:pt-[17px]  sm:pt-[10px]">
                   Домашнє завдання?
                 </p>
                 <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
@@ -160,116 +348,108 @@ function Onboarding() {
                   задаючи потрібні дитині питання-підказки.
                 </p>
               </div>
-              <div className="w-[100%] lg:h-1/3 md:h-1/3 md:w-[100%] lg:w-[100%] mb-4 md:mb-0 md:mr-4 z-20 relative">
-                <div className="third">
-                  <img
-                    alt="Groovy Meditation"
-                    src={require("../images/groovy-meditation.png")}
-                    style={{ maxWidth: "100%" }}
-                    className=""
-                  />
+            </div>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3   ">
+              <div className="fifth">
+                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#48DB7A] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <CheckCircleIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
                 </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Лише безпечний контент
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Груві говорить з дитиною лише про те, що відповідає її віку.
+                  По всьому іншому — обережно радить іти по думці батьків 😉
+                </p>
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-auto md:h-1/3 sm:h-1/6 ">
+              <div className="sixth">
+                <div className="lg:w-16 lg:h-16  flex-shrink-0 bg-[#FBD06F] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <SpeakerWaveIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6 sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Спілкуйтесь голосом
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Діти обожнюють говорити. Тепер у них справді є можливість
+                  поговорити про все на всі світі і знати більше всіх.
+                </p>
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-auto md:h-1/3 sm:h-1/6 ">
+              <div className="sixth">
+                <div className="lg:w-16 mt-[-2px] lg:h-16 flex-shrink-0 bg-[#48DB7A] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <LightBulbIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Запалюйте креативність
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Всі дітки — мрійники і творці. Ми це розуміємо, і тому
+                  створили для них можливість творити, в команді зі штучним
+                  інтелектом.
+                </p>
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3 sm:h-1/6 ">
+              <div className="sixth ">
+                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#4BA0FF] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <SparklesIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Терпеливий вчитель
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Груві вміє терпеливо, послідовно та просто пояснювати про
+                  майже все на світі — в тому числі і предмети шкільної
+                  програми, не втомлюючись шукати все нові і нові слова та
+                  підходи.
+                </p>
+              </div>
+            </div>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3 sm:h-1/6">
+              <div className="sixth">
+                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#A097FF] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <ArrowTrendingUpIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
+                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Ціль — навчити
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
+                  Груві розуміє, що діти шукають швидких відповідей, особливо на
+                  домашнє завдання, і майже ніколи не дає їх, замінюючи
+                  питаннями, які наштовхують дитину на роздуми і самостійність.
+                </p>
               </div>
             </div>
 
-            <div className="col-span-1">
-              <div className="w-[100%] lg:h-auto md:h-1/3 sm:h-1/6 md:w-[100%] lg:w-[100%] mb-[56px]">
-                <div className="fifth">
-                  <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#48DB7A] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
-                    <CheckCircleIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
-                  </div>
-                  <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
-                    Лише безпечний контент
-                  </p>
-                  <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
-                    Груві говорить з дитиною лише про те, що відповідає її віку.
-                    По всьому іншому — обережно радить іти по думці батьків 😉
-                  </p>
-                </div>
-              </div>
-              <div className="w-[100%] lg:h-1/3 md:h-1/3 sm:h-1/6">
-                <div className="sixth">
-                  <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#4BA0FF] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
-                    <SparklesIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
-                  </div>
-                  <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
-                    Терпеливий вчитель
-                  </p>
-                  <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
-                    Груві вміє терпеливо, послідовно та просто пояснювати про
-                    майже все на світі — в тому числі і предмети шкільної
-                    програми, не втомлюючись шукати все нові і нові слова та
-                    підходи.
-                  </p>
-                </div>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3 z-20 relative">
+              <div className="third">
+                <img
+                  alt="Groovy Meditation"
+                  src={require("../images/groovy-meditation.png")}
+                  style={{ maxWidth: "100%" }}
+                  className=""
+                />
               </div>
             </div>
-            <div className="col-span-1">
-              <div className="w-[100%] lg:h-auto md:h-1/3 sm:h-1/6 md:w-[100%] lg:w-[100%] mb-[56px]">
-                <div className="sixth">
-                  <div className="lg:w-16 lg:h-16  flex-shrink-0 bg-[#FBD06F] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
-                    <SpeakerWaveIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6 sm:w-6 sm:h-6" />
-                  </div>
-                  <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
-                    Спілкуйтесь голосом
-                  </p>
-                  <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
-                    Діти обожнюють говорити. Тепер у них справді є можливість
-                    поговорити про все на всі світі і знати більше всіх.
-                  </p>
+            <div className="w-[100%] lg:h-1/3 md:h-1/3 sm:h-1/6">
+              <div className="sixth">
+                <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#4BA0FF] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
+                  <ShareIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
                 </div>
-              </div>
-              <div className="w-[100%] lg:h-1/3 md:h-1/3 sm:h-1/6">
-                <div className="sixth">
-                  <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#A097FF] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
-                    <ArrowTrendingUpIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
-                  </div>
-                  <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
-                    Ціль — навчити
-                  </p>
-                  <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
-                    Груві розуміє, що діти шукають швидких відповідей, особливо
-                    на домашнє завдання, і майже ніколи не дає їх, замінюючи
-                    питаннями, які наштовхують дитину на роздуми і
-                    самостійність.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-span-1">
-              <div className="w-[100%] lg:h-auto md:h-1/3 sm:h-1/6 md:w-[100%] lg:w-[100%] mb-[56px]">
-                <div className="sixth">
-                  <div className="lg:w-16 mt-[-2px] lg:h-16 flex-shrink-0 bg-[#48DB7A] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
-                    <LightBulbIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
-                  </div>
-                  <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
-                    Запалюйте креативність
-                  </p>
-                  <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter md:text-[13px] sm:text-[12px]">
-                    Всі дітки — мрійники і творці. Ми це розуміємо, і тому
-                    створили для них можливість творити, в команді зі штучним
-                    інтелектом.
-                  </p>
-                </div>
-              </div>
-              <div className="w-[100%] lg:h-1/3 md:h-1/3 sm:h-1/6">
-                <div className="sixth">
-                  <div className="lg:w-16 lg:h-16 flex-shrink-0 bg-[#4BA0FF] rounded-[18px] flex items-center justify-center  md:w-[53px] md:h-[53px] sm:w-[50px] sm:h-[50px]">
-                    <ShareIcon className="lg:w-8 lg:h-8 text-white md:w-6 md:h-6  sm:w-6 sm:h-6" />
-                  </div>
-                  <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
-                    Послідовне мишлення
-                  </p>
-                  <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter  md:text-[13px] sm:text-[12px]">
-                    Осмислене спілкування у форматі “питання-відповідь” дуже
-                    важливе для розвитку послідовного мишлення. Груві — майстер
-                    логічних висновків і готовий цьому навчати.
-                  </p>
-                </div>
+                <p className="lg:pt-[31px] text-gray-900 lg:text-xl not-italic font-semibold leading-8 font-inter md:text-[16px] sm:text-[14px] md:pt-[17px]  sm:pt-[10px]">
+                  Послідовне мишлення
+                </p>
+                <p className="text-[#637381] lg:text-base not-italic font-normal leading-6 font-inter  md:text-[13px] sm:text-[12px]">
+                  Осмислене спілкування у форматі “питання-відповідь” дуже
+                  важливе для розвитку послідовного мишлення. Груві — майстер
+                  логічних висновків і готовий цьому навчати.
+                </p>
               </div>
             </div>
           </div>
-
           <div className="relative ">
             <div
               className="z-0 absolute sm:top-[-20vh] sm:left-[-10vw] sm:w-[130px] sm:h-[130px] sm:rounded-[130px] sm:border-[30px] 
@@ -290,7 +470,8 @@ function Onboarding() {
             ></div>
           </div>
 
-          <div className="lg:mt-[190px] md:mt-[130px] sm:mt-[70px]   md:h-[470px] lg:h-[470px] sm:h-[300px] w-full bg-gradient-to-r from-[#3056D3] to-[#13C296]  lg:mb-[170px] md:mb-[100px] sm:mb-[20px]">
+          <div className="lg:mt-[190px] md:mt-[130px] sm:mt-[70px]   
+          md:h-[470px] lg:h-[470px] sm:h-[300px] w-full bg-gradient-to-r from-[#3056D3] to-[#13C296]  lg:mb-[170px] md:mb-[100px] sm:mb-[20px]">
             <p
               className="lg:pt-[70px] md:pt-[55px] sm:pt-[55px] text-white text-center lg:text-[36px] not-italic 
             font-bold lg:leading-10 md:text-[24px] sm:leading-9 sm:text-[24px] md:leading-9 font-inter"
